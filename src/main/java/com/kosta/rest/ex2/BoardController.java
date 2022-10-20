@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -78,5 +79,20 @@ public class BoardController {
 			return new ResponseEntity<String>("MODIFY_FAILED", HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@DeleteMapping("/boards/del/{id}")
+	public ResponseEntity<String> deleteArticle(@PathVariable Integer id){
+	try {
+		articleDAO.deleteArticle(id);
+		return new ResponseEntity<String>("DELETE_SUCCESS", HttpStatus.OK);
+	} catch (Exception e) {
+		e.printStackTrace();
+		return new ResponseEntity<String>("DELETE_FAILED", HttpStatus.BAD_REQUEST);
+	}
+	
+	
+	}
+	
+	
 	
 }

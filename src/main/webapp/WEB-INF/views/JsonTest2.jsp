@@ -108,6 +108,23 @@ $(function() {
 		})
 	})	
 	
+	//내용삭제
+	$("#checkJson6").click(function() {
+		var id=$('#id4').val();
+		$.ajax({
+			type:"DELETE",
+			url:"${contexPath}/boards/del/"+id,
+			success:function(data, textStatus) {
+				alert(data);
+			},
+			error:function(data,textStatus) {
+				alert("에러가 발생했습니다.")			
+			},
+			complete:function(data, textStatus) {
+				
+			}
+		})
+	})	
 	
 })
 </script>
@@ -125,8 +142,13 @@ $(function() {
 	<input type="button" id="checkJson4" value="제목수정"/><br/>
 	<label>번호: </label><input type="text" id="id2"><br/>
 	<label>제목: </label><input type="text" id="title2"><br/><br/>
+	
 	<input type="button" id="checkJson5" value="내용수정"/><br/>
 	<label>번호: </label><input type="text" id="id3"><br/>
-	<label>내용: </label><input type="text" id="content3"><br/>
+	<label>내용: </label><input type="text" id="content3"><br/><br/>
+	
+	<input type="button" id="checkJson6" value="삭제"/><br/>
+	<label>번호: </label><input type="text" id="id4"><br/>
+	
 </body>
 </html>
