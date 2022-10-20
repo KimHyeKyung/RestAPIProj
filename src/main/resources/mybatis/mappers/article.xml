@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kosta.rest.ex2.ArticleDAO">
+	<!-- application.properties에 mybatis.type-aliases-package=com.kosta.article.bean로 설정해줘서 resultType="article"라고 작성해도 된다. -->
+	
+	<insert id="insertArticle" parameterType="article">
+	<![CDATA[
+		insert into article(id, writer, title, content)
+		values(#{id}, #{writer}, #{title}, #{content})
+	]]>
+	</insert>
+	
+	<select id="selectArticle" parameterType="Integer" resultType="article">
+	<![CDATA[
+		select * from article where id = #{id}
+	]]>
+	</select>
+	
+	<select id="selectArticleList" resultType="article">
+	<![CDATA[
+		
+	]]>
+	</select>
+	
+	<update id="updateArticle" parameterType="article">
+	<![CDATA[
+		update article
+		set title = #{title}, content = #{content}
+		where id = #{id}
+	]]>
+	</update>
+	
+	<update id="updateTitle">
+	<![CDATA[
+		update article
+		set title = #{title}
+		where id = #{id}
+	]]>
+	</update>
+	
+	<update id="updateContent">
+	<![CDATA[
+		update article
+		set content = #{content}
+		where id = #{id}
+	]]>
+	</update>
+	
+	<delete id="deleteArticle" parameterType="integer">
+	<![CDATA[
+	
+	]]>
+	</delete>
+	
+</mapper>
