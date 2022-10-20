@@ -10,7 +10,7 @@
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 $(function(){
-	//화면뜨자마자 과일, 야채, 생성, 유제품이 나오도록
+	//화면뜨자마자 과일, 야채, 생성, 유제품이 나오도록(첫번째 selectBox)
 	$("#pro_fam").change(function(){
 		var fid = $(this).val();
 		$.ajax({
@@ -37,7 +37,7 @@ $(function(){
 		})
 	})
 	
-	//화면뜨자마자 과일이 선택되어있으니깐 두번째 selectBox에 빈값을 보여주지말고 과일에 대한 selectList값을 보여주자!
+	//화면뜨자마자 과일이 선택되어있으니깐 두번째 selectBox에 빈값을 보여주지말고 과일에 대한 selectList값을 보여주자!(두번째 selectBox)
 	var ifid = $("#pro_fam").val();	//화면 처음 뜨자마자 과일이 선택되어있으니 ifid값은 1이 지정되어있다.
 	console.log(ifid);
 	$.ajax({
